@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 
 const questions = [
@@ -144,7 +144,18 @@ export default function DiagnosticPage() {
                       {getLevel(result.correct, result.total)}
                     </span>
                   </div>
-<div className="mt-6 rounded-3xl bg-blue-600 p-6 text-white shadow-sm">
+
+                  <p className="mt-2 text-sm text-slate-500">
+                    {result.correct} correct out of {result.total}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <Link
+  href="/learn/fractions"
+  className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
+>
   <p className="text-sm font-semibold text-blue-100">
     RECOMMENDED NEXT STEP
   </p>
@@ -154,17 +165,9 @@ export default function DiagnosticPage() {
   </h2>
 
   <p className="mt-2 text-blue-100">
-    MathTukule recommends practising this topic first based on your
-    diagnostic results.
+    Tap here to start your recommended lesson.
   </p>
-</div>
-                  <p className="mt-2 text-sm text-slate-500">
-                    {result.correct} correct out of {result.total}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+</Link>
         </div>
       </main>
     );
@@ -202,8 +205,8 @@ export default function DiagnosticPage() {
             ))}
           </div>
         </div>
-
-        <div className="mt-6 h-3 overflow-hidden rounded-full bg-slate-200">
+             
+         <div className="mt-6 h-3 overflow-hidden rounded-full bg-slate-200">
           <div
             className="h-full rounded-full bg-blue-600"
             style={{
