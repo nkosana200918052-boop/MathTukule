@@ -1,4 +1,8 @@
+"use client";
+import { useState } from "react";
 export default function FractionsLesson() {
+  const [answer, setAnswer] = useState("");
+  const [feedback, setFeedback] = useState("");
   return (
     <main className="min-h-screen bg-slate-50 px-5 py-10">
       <div className="mx-auto max-w-2xl">
@@ -18,7 +22,10 @@ export default function FractionsLesson() {
           <h2 className="text-2xl font-bold text-slate-900">
             What is a fraction?
           </h2>
-
+          
+          <p className="mt-4 text-lg font-semibold text-slate-800">
+          
+          </p>
           <p className="mt-4 leading-7 text-slate-600">
             A fraction represents part of a whole.
           </p>
@@ -71,9 +78,30 @@ export default function FractionsLesson() {
             What is 1/2 written as a decimal?
           </p>
 
-          <p className="mt-4 text-slate-600">
-            Think about dividing 1 by 2.
-          </p>
+         <div className="mt-5 space-y-3">
+  {["0.2", "0.5", "1.2", "2.0"].map((option) => (
+    <button
+      key={option}
+      onClick={() => {
+        setAnswer(option);
+
+        if (option === "0.5") {
+          setFeedback("Correct! 🎉");
+        } else {
+          setFeedback("Try again. Think about 1 divided by 2.");
+        }
+      }}
+      className="w-full rounded-2xl border border-slate-200 p-4 text-left font-semibold"
+    >
+      {option}
+    </button>
+  ))}
+</div>
+{feedback && (
+  <p className="mt-4 font-semibold text-slate-700">
+    {feedback}
+  </p>
+)}
         </div>
       </div>
     </main>
