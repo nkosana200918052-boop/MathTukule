@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function WholeNumbersLesson() {
     const [answer, setAnswer] = useState("");
 const [feedback, setFeedback] = useState("");
+const [questionNumber, setQuestionNumber] = useState(1);
   return (
     <main className="min-h-screen bg-slate-50 px-5 py-10">
       <div className="mx-auto max-w-2xl">
@@ -47,20 +48,28 @@ const [feedback, setFeedback] = useState("");
   </h2>
 
   <p className="mt-4 text-lg font-semibold text-slate-800">
-    What is the value of the digit 6 in 364 219?
+    {questionNumber === 1
+  ? "What is the value of the digit 6 in 364 219?"
+  : "Calculate: 4 825 + 3 679"}
   </p>
   <div className="mt-5 space-y-3">
-  {["600", "6 000", "60 000", "600 000"].map((option) => (
+  {(questionNumber === 1
+  ? ["600", "6 000", "60 000", "600 000"]
+  : ["8 404", "8 504", "8 604", "9 504"]
+).map((option) => (
     <button
       key={option}
       onClick={() => {
   setAnswer(option);
 
-  if (option === "60 000") {
-    setFeedback("Correct! 🎉");
-  } else {
-    setFeedback("Try again. Think about the place of the digit 6.");
-  }
+  const correctAnswer =
+  questionNumber === 1 ? "60 000" : "8 504";
+
+if (option === correctAnswer) {
+  setFeedback("Correct! 🎉");
+} else {
+  setFeedback("Try again.");
+}
 }}
       className="w-full rounded-2xl border border-slate-200 p-4 text-left font-semibold"
     >
@@ -72,6 +81,29 @@ const [feedback, setFeedback] = useState("");
   <p className="mt-4 font-semibold text-slate-700">
     {feedback}
   </p>
+)}
+{feedback === "Correct! 🎉" && questionNumber === 1 && (
+  <button
+    onClick={() => {
+      setQuestionNumber(2);
+      setAnswer("");
+      setFeedback("");
+    }}
+    className="mt-5 rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
+  >
+    Next Question →
+  </button>
+)}
+{feedback === "Correct! 🎉" && questionNumber === 2 && (
+  <div className="mt-5 rounded-2xl bg-green-50 p-5">
+    <h3 className="text-xl font-bold text-green-700">
+      Lesson Complete! 🎉
+    </h3>
+
+    <p className="mt-2 text-slate-700">
+      Great work. You completed this Whole Numbers practice.
+    </p>
+  </div>
 )}
 </div>
     </main>
