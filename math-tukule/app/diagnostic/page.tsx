@@ -153,7 +153,11 @@ export default function DiagnosticPage() {
             </div>
           </div>
           <Link
-  href="/learn/fractions"
+  href={
+  weakestTopic === "Fractions & Decimals"
+    ? "/learn/fractions"
+    : "/diagnostic"
+}
   className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
 >
   <p className="text-sm font-semibold text-blue-100">
