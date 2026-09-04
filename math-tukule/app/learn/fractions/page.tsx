@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 export default function FractionsLesson() {
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -136,6 +137,12 @@ if (option === correctAnswer) {
     <p className="mt-2 text-slate-700">
       Great work. You completed this fractions practice.
     </p>
+    <Link
+  href="/diagnostic"
+  className="mt-4 inline-block rounded-2xl bg-blue-600 px-5 py-3 font-semibold text-white"
+>
+  Back to Diagnostic
+</Link>
   </div>
 )}
         </div>
