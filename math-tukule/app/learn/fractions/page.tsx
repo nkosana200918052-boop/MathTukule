@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function FractionsLesson() {
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [questionNumber, setQuestionNumber] = useState(1);
   return (
     <main className="min-h-screen bg-slate-50 px-5 py-10">
       <div className="mx-auto max-w-2xl">
@@ -75,23 +76,32 @@ export default function FractionsLesson() {
           </h2>
 
           <p className="mt-4 text-lg font-semibold text-slate-800">
-            What is 1/2 written as a decimal?
+            {questionNumber === 1
+  ? "What is 1/2 written as a decimal?"
+  : "What is 3/4 written as a decimal?"}
           </p>
 
          <div className="mt-5 space-y-3">
-  {["0.2", "0.5", "1.2", "2.0"].map((option) => (
+  {(questionNumber === 1
+  ? ["0.2", "0.5", "1.2", "2.0"]
+  : ["0.25", "0.5", "0.75", "1.5"]
+).map((option) => (
     <button
       key={option}
       onClick={() => {
         setAnswer(option);
 
-        if (option === "0.5") {
-          setFeedback("Correct! 🎉");
-        } else {
-          setFeedback("Try again. Think about 1 divided by 2.");
-        }
+        const correctAnswer = questionNumber === 1 ? "0.5" : "0.75";
+
+if (option === correctAnswer) {
+  setFeedback("Correct! 🎉");
+} else {
+  setFeedback("Try again.");
+}
       }}
-      className="w-full rounded-2xl border border-slate-200 p-4 text-left font-semibold"
+     className={`w-full rounded-2xl border p-4 text-left font-semibold ${
+  answer === option ? "border-blue-500 bg-blue-50" : "border-slate-200"
+}`}
     >
       {option}
     </button>
@@ -101,6 +111,32 @@ export default function FractionsLesson() {
   <p className="mt-4 font-semibold text-slate-700">
     {feedback}
   </p>
+)}
+{feedback === "Correct! 🎉" && questionNumber === 1 && (
+ <button
+  onClick={() => {
+  if (questionNumber === 1) {
+    setQuestionNumber(2);
+    setAnswer("");
+    setFeedback("");
+  }
+}}
+  className="mt-5 rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
+>
+  Next Question →
+</button>
+)}
+
+{feedback === "Correct! 🎉" && questionNumber === 2 && (
+  <div className="mt-5 rounded-2xl bg-green-50 p-5">
+    <h3 className="text-xl font-bold text-green-700">
+      Lesson Complete! 🎉
+    </h3>
+
+    <p className="mt-2 text-slate-700">
+      Great work. You completed this fractions practice.
+    </p>
+  </div>
 )}
         </div>
       </div>
