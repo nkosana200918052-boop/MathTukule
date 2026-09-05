@@ -158,6 +158,8 @@ export default function DiagnosticPage() {
     ? "/learn/fractions"
     : weakestTopic === "Whole Numbers"
     ? "/learn/whole-numbers"
+    : weakestTopic === "Algebra"
+    ? "/learn/algebra"
     : "/diagnostic"
 }
   className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
