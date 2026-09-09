@@ -103,6 +103,12 @@ export default function GeometryLesson() {
               <p className="mt-2 text-slate-700">
                 Great work. You completed this Geometry practice.
               </p>
+              <a
+  href="/diagnostic"
+  className="mt-4 inline-block rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
+>
+  Back to Diagnostic
+</a>
             </div>
           )}
         </div>
