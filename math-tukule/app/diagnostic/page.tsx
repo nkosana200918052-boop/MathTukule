@@ -51,6 +51,12 @@ const questions = [
   options: ["35 cm", "350 cm", "3 500 cm", "0.35 cm"],
   answer: "350 cm",
 },
+{
+  topic: "Probability",
+  question: "A bag contains 3 red balls and 7 blue balls. What is the probability of choosing a red ball?",
+  options: ["3/10", "7/10", "3/7", "1/10"],
+  answer: "3/10",
+},
 ];
 
 export default function DiagnosticPage() {
@@ -184,6 +190,8 @@ export default function DiagnosticPage() {
     ? "/learn/data-handling"
     : weakestTopic === "Measurement"
     ? "/learn/measurement"
+    : weakestTopic === "Probability"
+    ? "/learn/probability"
     : "/diagnostic"
 }
   className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
