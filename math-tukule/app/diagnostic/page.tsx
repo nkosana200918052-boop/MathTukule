@@ -57,6 +57,12 @@ const questions = [
   options: ["3/10", "7/10", "3/7", "1/10"],
   answer: "3/10",
 },
+{
+  topic: "Patterns and Functions",
+  question: "What are the next two numbers in this pattern: 5, 10, 15, 20?",
+  options: ["21, 22", "25, 30", "30, 35", "20, 25"],
+  answer: "25, 30",
+},
 ];
 
 export default function DiagnosticPage() {
@@ -192,6 +198,8 @@ export default function DiagnosticPage() {
     ? "/learn/measurement"
     : weakestTopic === "Probability"
     ? "/learn/probability"
+    : weakestTopic === "Patterns and Functions"
+? "/learn/patterns-functions"
     : "/diagnostic"
 }
   className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
