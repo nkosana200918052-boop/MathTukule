@@ -33,6 +33,18 @@ const questions = [
     options: ["90°", "120°", "180°", "360°"],
     answer: "180°",
   },
+  {
+  topic: "Data Handling",
+  question: "What is the mean of 4, 6, 8, 10 and 12?",
+  options: ["6", "7", "8", "9"],
+  answer: "8",
+},
+{
+  topic: "Data Handling",
+  question: "What is the mean of 4, 6, 8, 10 and 12?",
+  options: ["6", "7", "8", "9"],
+  answer: "8",
+},
 ];
 
 export default function DiagnosticPage() {
