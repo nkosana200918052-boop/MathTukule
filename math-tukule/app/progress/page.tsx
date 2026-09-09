@@ -1,5 +1,16 @@
+"use client";
+
+import { useEffect, useState } from "react";
 export default function ProgressPage() {
-  const topics = [
+    const [completedTopics, setCompletedTopics] = useState<string[]>([]);
+  useEffect(() => {
+  const savedProgress = localStorage.getItem("completedTopics");
+
+  if (savedProgress) {
+    setCompletedTopics(JSON.parse(savedProgress));
+  }
+}, []);
+    const topics = [
     "Whole Numbers",
     "Fractions & Decimals",
     "Algebra",
@@ -38,6 +49,11 @@ export default function ProgressPage() {
               <p className="mt-1 text-sm text-slate-500">
                 Not completed yet
               </p>
+              <p className="mt-1 text-sm text-slate-500">
+  {completedTopics.includes(topic)
+    ? "Completed ✅"
+    : "Not completed yet"}
+</p>
             </div>
           ))}
         </div>
