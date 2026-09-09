@@ -162,6 +162,8 @@ export default function DiagnosticPage() {
     ? "/learn/algebra"
     : weakestTopic === "Geometry"
 ? "/learn/geometry"
+ : weakestTopic === "Data Handling"
+    ? "/learn/data-handling"
     : "/diagnostic"
 }
   className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
