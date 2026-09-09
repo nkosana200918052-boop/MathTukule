@@ -97,8 +97,11 @@ const [questionNumber, setQuestionNumber] = useState(1);
     }}
     className="mt-5 rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
   >
-    Next Question →
-    {feedback === "Correct! 🎉" && questionNumber === 2 && (
+        Next Question →
+  </button>
+)}
+
+{feedback === "Correct! 🎉" && questionNumber === 2 && (
   <div className="mt-5 rounded-2xl bg-green-50 p-5">
     <h3 className="text-xl font-bold text-green-700">
       Lesson Complete! 🎉
@@ -107,10 +110,15 @@ const [questionNumber, setQuestionNumber] = useState(1);
     <p className="mt-2 text-slate-700">
       Great work. You completed this Algebra practice.
     </p>
+    <a
+  href="/diagnostic"
+  className="mt-4 inline-block rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
+>
+  Back to Diagnostic
+</a>
   </div>
 )}
-  </button>
-)}
+
     </main>
   );
 }
