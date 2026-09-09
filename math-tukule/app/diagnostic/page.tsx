@@ -45,6 +45,12 @@ const questions = [
   options: ["6", "7", "8", "9"],
   answer: "8",
 },
+{
+  topic: "Measurement",
+  question: "Convert 3.5 metres to centimetres.",
+  options: ["35 cm", "350 cm", "3 500 cm", "0.35 cm"],
+  answer: "350 cm",
+},
 ];
 
 export default function DiagnosticPage() {
@@ -176,6 +182,8 @@ export default function DiagnosticPage() {
 ? "/learn/geometry"
  : weakestTopic === "Data Handling"
     ? "/learn/data-handling"
+    : weakestTopic === "Measurement"
+    ? "/learn/measurement"
     : "/diagnostic"
 }
   className="mt-6 block rounded-3xl bg-blue-600 p-6 text-white shadow-sm"
