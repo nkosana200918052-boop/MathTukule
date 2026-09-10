@@ -65,6 +65,18 @@ export default function PracticePage() {
   <p className="text-lg font-bold text-slate-900">
     Probability
   </p>
+  <Link
+  href="/practice/patterns-functions"
+  className="mt-4 block rounded-2xl bg-white p-5 shadow-sm"
+>
+  <p className="text-lg font-bold text-slate-900">
+    Patterns and Functions
+  </p>
+
+  <p className="mt-1 text-sm text-slate-600">
+    Practise number patterns, rules and sequences.
+  </p>
+</Link>
 
   <p className="mt-1 text-sm text-slate-600">
     Practise simple probability and chance.
