@@ -139,6 +139,9 @@ export default function DiagnosticPage() {
 
   if (finished) {
     const weakestTopic = getWeakestTopic();
+    const weakestResult = weakestTopic
+  ? topicResults[weakestTopic]
+  : null;
     return (
       <main className="min-h-screen bg-slate-50 px-5 py-10">
         <div className="mx-auto max-w-md">
@@ -214,6 +217,11 @@ export default function DiagnosticPage() {
   <p className="mt-2 font-semibold text-white">
   This is the topic where you need the most practice.
 </p>
+{weakestResult && (
+  <p className="mt-2 text-blue-100">
+    Your result: {weakestResult.correct} out of {weakestResult.total}
+  </p>
+)}
 
   <p className="mt-2 text-blue-100">
     Tap here to start your recommended lesson.
