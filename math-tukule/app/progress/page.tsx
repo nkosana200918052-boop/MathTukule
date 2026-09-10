@@ -8,6 +8,10 @@ export default function ProgressPage() {
   total: number;
 } | null>(null);
 const [recommendedTopic, setRecommendedTopic] = useState<string | null>(null);
+const [wholeNumbersPractice, setWholeNumbersPractice] = useState<{
+  score: number;
+  total: number;
+} | null>(null);
   
   useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
@@ -25,6 +29,13 @@ const [recommendedTopic, setRecommendedTopic] = useState<string | null>(null);
 
 if (savedRecommendedTopic) {
   setRecommendedTopic(savedRecommendedTopic);
+}
+const savedWholeNumbersPractice = localStorage.getItem(
+  "wholeNumbersPractice"
+);
+
+if (savedWholeNumbersPractice) {
+  setWholeNumbersPractice(JSON.parse(savedWholeNumbersPractice));
 }
 }, []);
     const topics = [
@@ -68,6 +79,17 @@ const progressPercentage = Math.round(
     <p className="text-sm font-semibold text-slate-500">
       Diagnostic Score
     </p>
+    {wholeNumbersPractice && (
+  <div className="rounded-2xl bg-white p-5 shadow-sm">
+    <p className="text-sm font-semibold text-slate-500">
+      Whole Numbers Practice
+    </p>
+
+    <p className="mt-2 text-3xl font-bold text-blue-600">
+      {wholeNumbersPractice.score} / {wholeNumbersPractice.total}
+    </p>
+  </div>
+)}
 
     <p className="mt-2 text-3xl font-bold text-blue-600">
       {diagnosticScore.score} / {diagnosticScore.total}
