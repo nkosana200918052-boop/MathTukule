@@ -222,6 +222,11 @@ export default function DiagnosticPage() {
     Your result: {weakestResult.correct} out of {weakestResult.total}
   </p>
 )}
+{weakestResult && (
+  <p className="mt-2 font-semibold text-white">
+    Level: {getLevel(weakestResult.correct, weakestResult.total)}
+  </p>
+)}
 
   <p className="mt-2 text-blue-100">
     Tap here to start your recommended lesson.
