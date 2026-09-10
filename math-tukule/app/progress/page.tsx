@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 export default function ProgressPage() {
     const [completedTopics, setCompletedTopics] = useState<string[]>([]);
@@ -77,7 +77,28 @@ const progressPercentage = Math.round(
       </div>
 )}
 {recommendedTopic && (
-  <div className="mt-4 rounded-2xl bg-blue-50 p-5">
+  <Link
+    href={
+      recommendedTopic === "Fractions & Decimals"
+        ? "/learn/fractions"
+        : recommendedTopic === "Whole Numbers"
+        ? "/learn/whole-numbers"
+        : recommendedTopic === "Algebra"
+        ? "/learn/algebra"
+        : recommendedTopic === "Geometry"
+        ? "/learn/geometry"
+        : recommendedTopic === "Data Handling"
+        ? "/learn/data-handling"
+        : recommendedTopic === "Measurement"
+        ? "/learn/measurement"
+        : recommendedTopic === "Probability"
+        ? "/learn/probability"
+        : recommendedTopic === "Patterns and Functions"
+        ? "/learn/patterns-functions"
+        : "/progress"
+    }
+    className="mt-4 block rounded-2xl bg-blue-50 p-5"
+  >
     <p className="text-sm font-semibold text-blue-600">
       Recommended Topic
     </p>
@@ -85,7 +106,11 @@ const progressPercentage = Math.round(
     <p className="mt-2 text-xl font-bold text-slate-900">
       📚 {recommendedTopic}
     </p>
-  </div>
+
+    <p className="mt-2 text-sm text-blue-700">
+      Tap here to continue learning
+    </p>
+  </Link>
 )}
         <div className="mt-6 rounded-2xl bg-blue-50 p-5">
   <p className="text-lg font-bold text-blue-700">
