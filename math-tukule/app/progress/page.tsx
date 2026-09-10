@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 export default function ProgressPage() {
     const [completedTopics, setCompletedTopics] = useState<string[]>([]);
+    useEffect(() => {
+  const savedProgress = localStorage.getItem("completedTopics");
+
+  if (savedProgress) {
+    setCompletedTopics(JSON.parse(savedProgress));
+  }
+}, []);
   useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -54,6 +61,12 @@ export default function ProgressPage() {
 </p>
             </div>
           ))}
+          <a
+  href="/"
+  className="mt-8 inline-block rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
+>
+  ← Back to Home
+</a>
         </div>
       </div>
     </main>
