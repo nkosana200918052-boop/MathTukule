@@ -58,6 +58,18 @@ export default function PracticePage() {
   <p className="text-lg font-bold text-slate-900">
     Measurement
   </p>
+  <Link
+  href="/practice/probability"
+  className="mt-4 block rounded-2xl bg-white p-5 shadow-sm"
+>
+  <p className="text-lg font-bold text-slate-900">
+    Probability
+  </p>
+
+  <p className="mt-1 text-sm text-slate-600">
+    Practise simple probability and chance.
+  </p>
+</Link>
 
   <p className="mt-1 text-sm text-slate-600">
     Practise length conversions and measurement skills.
