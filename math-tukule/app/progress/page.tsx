@@ -62,6 +62,7 @@ const progressPercentage = Math.round(
         <p className="mt-3 text-slate-600">
           Track the Grade 7 Mathematics topics you are learning.
         </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
         {diagnosticScore && (
   <div className="mt-6 rounded-2xl bg-white p-5 shadow-sm">
     <p className="text-sm font-semibold text-slate-500">
@@ -112,6 +113,7 @@ const progressPercentage = Math.round(
 </div>
   </Link>
 )}
+</div>
         <div className="mt-6 rounded-2xl bg-blue-50 p-5">
   <p className="text-lg font-bold text-blue-700">
     {completedCount} of {topics.length} topics completed
