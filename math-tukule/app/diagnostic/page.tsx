@@ -157,6 +157,9 @@ export default function DiagnosticPage() {
 
   if (finished) {
     const weakestTopic = getWeakestTopic();
+    if (weakestTopic) {
+  localStorage.setItem("recommendedTopic", weakestTopic);
+}
     const weakestResult = weakestTopic
   ? topicResults[weakestTopic]
   : null;
