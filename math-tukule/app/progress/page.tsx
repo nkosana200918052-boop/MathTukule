@@ -28,6 +28,10 @@ const [dataHandlingPractice, setDataHandlingPractice] = useState<{
   score: number;
   total: number;
 } | null>(null);
+const [measurementPractice, setMeasurementPractice] = useState<{
+  score: number;
+  total: number;
+} | null>(null);
   useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -79,6 +83,13 @@ const savedDataHandlingPractice = localStorage.getItem(
 
 if (savedDataHandlingPractice) {
   setDataHandlingPractice(JSON.parse(savedDataHandlingPractice));
+}
+const savedMeasurementPractice = localStorage.getItem(
+  "measurementPractice"
+);
+
+if (savedMeasurementPractice) {
+  setMeasurementPractice(JSON.parse(savedMeasurementPractice));
 }
 }, []);
     const topics = [
@@ -174,6 +185,17 @@ const progressPercentage = Math.round(
 
     <p className="mt-2 text-3xl font-bold text-blue-600">
       {dataHandlingPractice.score} / {dataHandlingPractice.total}
+    </p>
+  </div>
+)}
+{measurementPractice && (
+  <div className="rounded-2xl bg-white p-5 shadow-sm">
+    <p className="text-sm font-semibold text-slate-500">
+      Measurement Practice
+    </p>
+
+    <p className="mt-2 text-3xl font-bold text-blue-600">
+      {measurementPractice.score} / {measurementPractice.total}
     </p>
   </div>
 )}
