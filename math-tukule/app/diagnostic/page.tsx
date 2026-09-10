@@ -39,12 +39,7 @@ const questions = [
   options: ["6", "7", "8", "9"],
   answer: "8",
 },
-{
-  topic: "Data Handling",
-  question: "What is the mean of 4, 6, 8, 10 and 12?",
-  options: ["6", "7", "8", "9"],
-  answer: "8",
-},
+
 {
   topic: "Measurement",
   question: "Convert 3.5 metres to centimetres.",
@@ -78,32 +73,44 @@ export default function DiagnosticPage() {
 
   function chooseAnswer(option: string) {
     const isCorrect = option === question.answer;
+ 
 
-    if (isCorrect) {
-      setScore((oldScore) => oldScore + 1);
-    }
-
-    setTopicResults((oldResults) => {
-      const currentTopic = oldResults[question.topic] || {
-        correct: 0,
-        total: 0,
-      };
-
-      return {
-        ...oldResults,
-        [question.topic]: {
-          correct: currentTopic.correct + (isCorrect ? 1 : 0),
-          total: currentTopic.total + 1,
-        },
-      };
-    });
-
-    if (currentQuestion === questions.length - 1) {
-      setFinished(true);
-    } else {
-      setCurrentQuestion((oldQuestion) => oldQuestion + 1);
-    }
+  if (isCorrect) {
+    setScore((oldScore) => oldScore + 1);
   }
+
+  setTopicResults((oldResults) => {
+    const currentTopic = oldResults[question.topic] || {
+      correct: 0,
+      total: 0,
+    };
+
+    return {
+      ...oldResults,
+      [question.topic]: {
+        correct: currentTopic.correct + (isCorrect ? 1 : 0),
+        total: currentTopic.total + 1,
+      },
+    };
+  });
+
+  if (currentQuestion === questions.length - 1) {
+    const finalScore = isCorrect ? score + 1 : score;
+
+    localStorage.setItem(
+      "diagnosticScore",
+      JSON.stringify({
+        score: finalScore,
+        total: questions.length,
+      })
+    );
+
+    setFinished(true);
+  } else {
+    setCurrentQuestion((oldQuestion) => oldQuestion + 1);
+  }
+}
+ 
 
   function getLevel(correct: number, total: number) {
     const percentage = (correct / total) * 100;
