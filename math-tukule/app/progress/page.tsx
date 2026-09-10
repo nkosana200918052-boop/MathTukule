@@ -32,6 +32,10 @@ const [measurementPractice, setMeasurementPractice] = useState<{
   score: number;
   total: number;
 } | null>(null);
+const [probabilityPractice, setProbabilityPractice] = useState<{
+  score: number;
+  total: number;
+} | null>(null);
   useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -90,6 +94,13 @@ const savedMeasurementPractice = localStorage.getItem(
 
 if (savedMeasurementPractice) {
   setMeasurementPractice(JSON.parse(savedMeasurementPractice));
+}
+const savedProbabilityPractice = localStorage.getItem(
+  "probabilityPractice"
+);
+
+if (savedProbabilityPractice) {
+  setProbabilityPractice(JSON.parse(savedProbabilityPractice));
 }
 }, []);
     const topics = [
@@ -196,6 +207,17 @@ const progressPercentage = Math.round(
 
     <p className="mt-2 text-3xl font-bold text-blue-600">
       {measurementPractice.score} / {measurementPractice.total}
+    </p>
+  </div>
+)}
+{probabilityPractice && (
+  <div className="rounded-2xl bg-white p-5 shadow-sm">
+    <p className="text-sm font-semibold text-slate-500">
+      Probability Practice
+    </p>
+
+    <p className="mt-2 text-3xl font-bold text-blue-600">
+      {probabilityPractice.score} / {probabilityPractice.total}
     </p>
   </div>
 )}
