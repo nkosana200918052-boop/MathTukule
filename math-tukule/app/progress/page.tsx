@@ -57,6 +57,12 @@ const progressPercentage = Math.round(
   <p className="mt-1 text-slate-700">
     {progressPercentage}% complete
   </p>
+  <div className="mt-4 h-3 w-full overflow-hidden rounded-full bg-slate-200">
+  <div
+    className="h-full rounded-full bg-blue-600 transition-all"
+    style={{ width: `${progressPercentage}%` }}
+  />
+</div>
 </div>
 
         <div className="mt-8 space-y-4">
