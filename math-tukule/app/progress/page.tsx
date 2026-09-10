@@ -8,13 +8,7 @@ export default function ProgressPage() {
   total: number;
 } | null>(null);
 const [recommendedTopic, setRecommendedTopic] = useState<string | null>(null);
-    useEffect(() => {
-  const savedProgress = localStorage.getItem("completedTopics");
-
-  if (savedProgress) {
-    setCompletedTopics(JSON.parse(savedProgress));
-  }
-}, []);
+  
   useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -124,11 +118,12 @@ const progressPercentage = Math.round(
   </p>
 
   <p className="mt-1 text-slate-700">
-    {progressPercentage}% complete
-    <p className="mt-4 text-slate-700">
+  {progressPercentage}% complete
+</p>
+
+<p className="mt-4 text-slate-700">
   You have completed {completedCount} of {topics.length} topics.
 </p>
-  </p>
   <div className="mt-4 h-3 w-full overflow-hidden rounded-full bg-slate-200">
   <div
     className="h-full rounded-full bg-blue-600 transition-all"
