@@ -113,6 +113,17 @@ export default function DiagnosticPage() {
 
     return "Needs Practice";
   }
+  function getRecommendationMessage(level: string) {
+  if (level === "Strong") {
+    return "Great work! You understand this topic well. Keep practising to stay strong.";
+  }
+
+  if (level === "Developing") {
+    return "You are making good progress. A little more practice will help you improve.";
+  }
+
+  return "This topic needs more practice. Start the recommended lesson to strengthen your understanding.";
+}
 
   function getWeakestTopic() {
   const entries = Object.entries(topicResults);
@@ -214,9 +225,13 @@ export default function DiagnosticPage() {
   <h2 className="mt-2 text-2xl font-bold">
     📚 Learn {weakestTopic}
   </h2>
+  {weakestResult && (
   <p className="mt-2 font-semibold text-white">
-  This is the topic where you need the most practice.
-</p>
+    {getRecommendationMessage(
+      getLevel(weakestResult.correct, weakestResult.total)
+    )}
+  </p>
+)}
 {weakestResult && (
   <p className="mt-2 text-blue-100">
     Your result: {weakestResult.correct} out of {weakestResult.total}
