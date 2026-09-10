@@ -27,6 +27,13 @@ export default function ProgressPage() {
     "Probability",
     "Patterns and Functions",
   ];
+  const completedCount = topics.filter((topic) =>
+  completedTopics.includes(topic)
+).length;
+
+const progressPercentage = Math.round(
+  (completedCount / topics.length) * 100
+);
 
   return (
     <main className="min-h-screen bg-slate-50 px-5 py-10">
@@ -42,6 +49,15 @@ export default function ProgressPage() {
         <p className="mt-3 text-slate-600">
           Track the Grade 7 Mathematics topics you are learning.
         </p>
+        <div className="mt-6 rounded-2xl bg-blue-50 p-5">
+  <p className="text-lg font-bold text-blue-700">
+    {completedCount} of {topics.length} topics completed
+  </p>
+
+  <p className="mt-1 text-slate-700">
+    {progressPercentage}% complete
+  </p>
+</div>
 
         <div className="mt-8 space-y-4">
           {topics.map((topic) => (
