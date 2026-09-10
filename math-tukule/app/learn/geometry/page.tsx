@@ -103,15 +103,15 @@ export default function GeometryLesson() {
               <p className="mt-2 text-slate-700">
                 Great work. You completed this Geometry practice.
               </p>
-              <a
+             <a
   href="/diagnostic"
   onClick={() => {
     const saved = JSON.parse(
       localStorage.getItem("completedTopics") || "[]"
     );
 
-    if (!saved.includes("Geometry")) {
-      saved.push("Geometry");
+    if (!saved.includes("Data Handling")) {
+      saved.push("Data Handling");
     }
 
     localStorage.setItem(
