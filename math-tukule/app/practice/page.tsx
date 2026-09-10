@@ -37,6 +37,18 @@ export default function PracticePage() {
   <p className="mt-1 text-sm text-slate-600">
     Practise equations and basic algebra skills.
   </p>
+  <Link
+  href="/practice/geometry"
+  className="mt-4 block rounded-2xl bg-white p-5 shadow-sm"
+>
+  <p className="text-lg font-bold text-slate-900">
+    Geometry
+  </p>
+
+  <p className="mt-1 text-sm text-slate-600">
+    Practise angles and basic geometry skills.
+  </p>
+</Link>
 </Link>
 
   <p className="mt-1 text-sm text-slate-600">
