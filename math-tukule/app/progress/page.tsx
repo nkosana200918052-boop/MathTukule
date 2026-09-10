@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 export default function ProgressPage() {
     const [completedTopics, setCompletedTopics] = useState<string[]>([]);
     const [diagnosticScore, setDiagnosticScore] = useState<{
-  score: number;
+      score: number;
   total: number;
 } | null>(null);
+const [recommendedTopic, setRecommendedTopic] = useState<string | null>(null);
     useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -26,6 +27,11 @@ export default function ProgressPage() {
   if (savedDiagnostic) {
     setDiagnosticScore(JSON.parse(savedDiagnostic));
   }
+  const savedRecommendedTopic = localStorage.getItem("recommendedTopic");
+
+if (savedRecommendedTopic) {
+  setRecommendedTopic(savedRecommendedTopic);
+}
 }, []);
     const topics = [
     "Whole Numbers",
@@ -67,6 +73,17 @@ const progressPercentage = Math.round(
 
     <p className="mt-2 text-3xl font-bold text-blue-600">
       {diagnosticScore.score} / {diagnosticScore.total}
+    </p>
+      </div>
+)}
+{recommendedTopic && (
+  <div className="mt-4 rounded-2xl bg-blue-50 p-5">
+    <p className="text-sm font-semibold text-blue-600">
+      Recommended Topic
+    </p>
+
+    <p className="mt-2 text-xl font-bold text-slate-900">
+      📚 {recommendedTopic}
     </p>
   </div>
 )}
