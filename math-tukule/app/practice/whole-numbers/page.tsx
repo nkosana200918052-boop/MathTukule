@@ -70,6 +70,16 @@ export default function WholeNumbersPracticePage() {
     Review Whole Numbers Lesson
   </Link>
 )}
+<button
+  onClick={() => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setFinished(false);
+  }}
+  className="ml-3 mt-6 rounded-2xl bg-slate-800 px-6 py-3 font-semibold text-white"
+>
+  Try Again
+</button>
 
           <p className="mt-3 text-slate-600">
             Well done for completing the Whole Numbers practice.
