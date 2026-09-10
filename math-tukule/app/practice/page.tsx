@@ -15,6 +15,18 @@ export default function PracticePage() {
         <p className="mt-3 text-slate-600">
           Choose a Grade 7 Mathematics topic to practise.
         </p>
+        <Link
+  href="/practice/whole-numbers"
+  className="mt-6 block rounded-2xl bg-white p-5 shadow-sm"
+>
+  <p className="text-lg font-bold text-slate-900">
+    Whole Numbers
+  </p>
+
+  <p className="mt-1 text-sm text-slate-600">
+    Practise place value, operations and number skills.
+  </p>
+</Link>
 
         <Link
           href="/"
