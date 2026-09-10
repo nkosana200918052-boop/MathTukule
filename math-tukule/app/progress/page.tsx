@@ -64,7 +64,7 @@ const progressPercentage = Math.round(
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
         {diagnosticScore && (
-  <div className="mt-6 rounded-2xl bg-white p-5 shadow-sm">
+  <div className="rounded-2xl bg-white p-5 shadow-sm">
     <p className="text-sm font-semibold text-slate-500">
       Diagnostic Score
     </p>
@@ -95,7 +95,7 @@ const progressPercentage = Math.round(
         ? "/learn/patterns-functions"
         : "/progress"
     }
-    className="mt-4 block rounded-2xl bg-blue-50 p-5"
+    className="block rounded-2xl bg-blue-50 p-5"
   >
     <p className="text-sm font-semibold text-blue-600">
       Recommended Topic
