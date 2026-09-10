@@ -12,7 +12,10 @@ const [wholeNumbersPractice, setWholeNumbersPractice] = useState<{
   score: number;
   total: number;
 } | null>(null);
-  
+  const [fractionsPractice, setFractionsPractice] = useState<{
+  score: number;
+  total: number;
+} | null>(null);
   useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -36,6 +39,13 @@ const savedWholeNumbersPractice = localStorage.getItem(
 
 if (savedWholeNumbersPractice) {
   setWholeNumbersPractice(JSON.parse(savedWholeNumbersPractice));
+}
+const savedFractionsPractice = localStorage.getItem(
+  "fractionsPractice"
+);
+
+if (savedFractionsPractice) {
+  setFractionsPractice(JSON.parse(savedFractionsPractice));
 }
 }, []);
     const topics = [
@@ -87,6 +97,17 @@ const progressPercentage = Math.round(
 
     <p className="mt-2 text-3xl font-bold text-blue-600">
       {wholeNumbersPractice.score} / {wholeNumbersPractice.total}
+    </p>
+  </div>
+)}
+{fractionsPractice && (
+  <div className="rounded-2xl bg-white p-5 shadow-sm">
+    <p className="text-sm font-semibold text-slate-500">
+      Fractions & Decimals Practice
+    </p>
+
+    <p className="mt-2 text-3xl font-bold text-blue-600">
+      {fractionsPractice.score} / {fractionsPractice.total}
     </p>
   </div>
 )}
