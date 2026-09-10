@@ -20,6 +20,7 @@ export default function MeasurementPracticePage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [practiceSaved, setPracticeSaved] = useState(false);
 
   function getLevel(score: number, total: number) {
     const percentage = (score / total) * 100;
@@ -29,6 +30,17 @@ export default function MeasurementPracticePage() {
     return "Needs Practice";
   }
 
+function savePracticeResult(finalScore: number) {
+  localStorage.setItem(
+    "measurementPractice",
+    JSON.stringify({
+      score: finalScore,
+      total: questions.length,
+    })
+  );
+
+  setPracticeSaved(true);
+}
   const question = questions[currentQuestion];
 
   function chooseAnswer(option: string) {
@@ -37,10 +49,12 @@ export default function MeasurementPracticePage() {
     if (isCorrect) {
       setScore((oldScore) => oldScore + 1);
     }
+if (currentQuestion === questions.length - 1) {
+  const finalScore = isCorrect ? score + 1 : score;
 
-    if (currentQuestion === questions.length - 1) {
-      setFinished(true);
-    } else {
+  savePracticeResult(finalScore);
+  setFinished(true);
+} else {
       setCurrentQuestion((oldQuestion) => oldQuestion + 1);
     }
   }
@@ -64,6 +78,11 @@ export default function MeasurementPracticePage() {
           <p className="mt-3 text-xl font-bold text-slate-900">
             Level: {getLevel(score, questions.length)}
           </p>
+          {practiceSaved && (
+  <p className="mt-2 text-sm font-semibold text-green-700">
+    ✓ Practice result saved to My Progress
+  </p>
+)}
 
           {getLevel(score, questions.length) === "Needs Practice" && (
             <Link
