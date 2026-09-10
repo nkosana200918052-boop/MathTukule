@@ -23,6 +23,12 @@ export default function Home() {
           >
             Start Diagnostic
           </Link>
+          <Link
+  href="/practice"
+  className="block rounded-2xl bg-white px-6 py-4 font-semibold text-slate-900 shadow-sm"
+>
+  Practice Mathematics
+</Link>
 
           <Link
             href="/progress"

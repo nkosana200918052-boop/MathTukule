@@ -16,6 +16,7 @@ export default function PracticePage() {
           Choose a Grade 7 Mathematics topic to practise.
         </p>
         <Link
+        
   href="/practice/whole-numbers"
   className="mt-6 block rounded-2xl bg-white p-5 shadow-sm"
 >
