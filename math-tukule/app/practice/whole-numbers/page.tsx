@@ -21,6 +21,13 @@ export default function WholeNumbersPracticePage() {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
 
+  function getLevel(score: number, total: number) {
+  const percentage = (score / total) * 100;
+
+  if (percentage >= 80) return "Strong";
+  if (percentage >= 50) return "Developing";
+  return "Needs Practice";
+}
   const question = questions[currentQuestion];
 
   function chooseAnswer(option: string) {
@@ -52,6 +59,9 @@ export default function WholeNumbersPracticePage() {
           <p className="mt-6 text-3xl font-bold text-blue-600">
             {score} / {questions.length}
           </p>
+          <p className="mt-3 text-xl font-bold text-slate-900">
+  Level: {getLevel(score, questions.length)}
+</p>
 
           <p className="mt-3 text-slate-600">
             Well done for completing the Whole Numbers practice.
