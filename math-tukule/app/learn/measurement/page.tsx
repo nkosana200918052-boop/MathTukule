@@ -110,8 +110,8 @@ if (option === correctAnswer) {
       localStorage.getItem("completedTopics") || "[]"
     );
 
-    if (!saved.includes("Measurement")) {
-      saved.push("Measurement");
+    if (!saved.includes("Probability")) {
+      saved.push("Probability");
     }
 
     localStorage.setItem(
