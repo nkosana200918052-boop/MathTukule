@@ -122,6 +122,9 @@ const progressPercentage = Math.round(
 
   <p className="mt-1 text-slate-700">
     {progressPercentage}% complete
+    <p className="mt-4 text-slate-700">
+  You have completed {completedCount} of {topics.length} topics.
+</p>
   </p>
   <div className="mt-4 h-3 w-full overflow-hidden rounded-full bg-slate-200">
   <div
