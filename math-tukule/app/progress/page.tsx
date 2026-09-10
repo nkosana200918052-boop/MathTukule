@@ -61,6 +61,9 @@ const progressPercentage = Math.round(
         <h1 className="mt-2 text-4xl font-bold text-slate-900">
           My Progress
         </h1>
+        <p className="mt-2 text-sm font-semibold text-blue-600">
+  Your MathTukule Learning Dashboard
+</p>
 
         <p className="mt-3 text-slate-600">
           Track the Grade 7 Mathematics topics you are learning.
