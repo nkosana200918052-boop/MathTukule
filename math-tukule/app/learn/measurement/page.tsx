@@ -123,6 +123,12 @@ if (option === correctAnswer) {
 >
   Back to Diagnostic
 </a>
+<a
+  href="/progress"
+  className="ml-3 mt-4 inline-block rounded-2xl bg-slate-800 px-6 py-3 font-semibold text-white"
+>
+  View My Progress
+</a>
   </div>
 )}
 </div>
