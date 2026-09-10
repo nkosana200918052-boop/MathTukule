@@ -46,9 +46,7 @@ export default function ProgressPage() {
                 {topic}
               </p>
 
-              <p className="mt-1 text-sm text-slate-500">
-                Not completed yet
-              </p>
+              
               <p className="mt-1 text-sm text-slate-500">
   {completedTopics.includes(topic)
     ? "Completed ✅"
