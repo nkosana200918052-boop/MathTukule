@@ -110,6 +110,9 @@ const progressPercentage = Math.round(
     <p className="mt-2 text-sm text-blue-700">
       Tap here to continue learning
     </p>
+    <div className="mt-4 inline-block rounded-xl bg-blue-600 px-4 py-2 font-semibold text-white">
+  Continue Learning →
+</div>
   </Link>
 )}
         <div className="mt-6 rounded-2xl bg-blue-50 p-5">
