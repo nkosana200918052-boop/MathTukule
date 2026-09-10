@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 export default function ProgressPage() {
     const [completedTopics, setCompletedTopics] = useState<string[]>([]);
+    const [diagnosticScore, setDiagnosticScore] = useState<{
+  score: number;
+  total: number;
+} | null>(null);
     useEffect(() => {
   const savedProgress = localStorage.getItem("completedTopics");
 
@@ -15,6 +19,12 @@ export default function ProgressPage() {
 
   if (savedProgress) {
     setCompletedTopics(JSON.parse(savedProgress));
+  }
+
+  const savedDiagnostic = localStorage.getItem("diagnosticScore");
+
+  if (savedDiagnostic) {
+    setDiagnosticScore(JSON.parse(savedDiagnostic));
   }
 }, []);
     const topics = [
@@ -49,6 +59,17 @@ const progressPercentage = Math.round(
         <p className="mt-3 text-slate-600">
           Track the Grade 7 Mathematics topics you are learning.
         </p>
+        {diagnosticScore && (
+  <div className="mt-6 rounded-2xl bg-white p-5 shadow-sm">
+    <p className="text-sm font-semibold text-slate-500">
+      Diagnostic Score
+    </p>
+
+    <p className="mt-2 text-3xl font-bold text-blue-600">
+      {diagnosticScore.score} / {diagnosticScore.total}
+    </p>
+  </div>
+)}
         <div className="mt-6 rounded-2xl bg-blue-50 p-5">
   <p className="text-lg font-bold text-blue-700">
     {completedCount} of {topics.length} topics completed
