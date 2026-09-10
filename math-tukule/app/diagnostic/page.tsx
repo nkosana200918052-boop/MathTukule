@@ -211,6 +211,9 @@ export default function DiagnosticPage() {
   <h2 className="mt-2 text-2xl font-bold">
     📚 Learn {weakestTopic}
   </h2>
+  <p className="mt-2 font-semibold text-white">
+  This is the topic where you need the most practice.
+</p>
 
   <p className="mt-2 text-blue-100">
     Tap here to start your recommended lesson.
