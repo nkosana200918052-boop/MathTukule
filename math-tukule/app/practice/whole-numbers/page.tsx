@@ -62,6 +62,14 @@ export default function WholeNumbersPracticePage() {
           <p className="mt-3 text-xl font-bold text-slate-900">
   Level: {getLevel(score, questions.length)}
 </p>
+{getLevel(score, questions.length) === "Needs Practice" && (
+  <Link
+    href="/learn/whole-numbers"
+    className="mt-6 inline-block rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white"
+  >
+    Review Whole Numbers Lesson
+  </Link>
+)}
 
           <p className="mt-3 text-slate-600">
             Well done for completing the Whole Numbers practice.
