@@ -44,6 +44,18 @@ export default function PracticePage() {
   <p className="text-lg font-bold text-slate-900">
     Geometry
   </p>
+  <Link
+  href="/practice/data-handling"
+  className="mt-4 block rounded-2xl bg-white p-5 shadow-sm"
+>
+  <p className="text-lg font-bold text-slate-900">
+    Data Handling
+  </p>
+
+  <p className="mt-1 text-sm text-slate-600">
+    Practise mean, median and data skills.
+  </p>
+</Link>
 
   <p className="mt-1 text-sm text-slate-600">
     Practise angles and basic geometry skills.
