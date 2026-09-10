@@ -19,6 +19,18 @@ export default function PracticePage() {
   href="/practice/whole-numbers"
   className="mt-6 block rounded-2xl bg-white p-5 shadow-sm"
 >
+    <Link
+  href="/practice/fractions"
+  className="mt-4 block rounded-2xl bg-white p-5 shadow-sm"
+>
+  <p className="text-lg font-bold text-slate-900">
+    Fractions & Decimals
+  </p>
+
+  <p className="mt-1 text-sm text-slate-600">
+    Practise fractions, decimals and equivalent values.
+  </p>
+</Link>
   <p className="text-lg font-bold text-slate-900">
     Whole Numbers
   </p>
